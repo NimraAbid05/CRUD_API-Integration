@@ -16,6 +16,16 @@ class _Home_ViewState extends State<Home_View> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "Users",
+          style: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: FutureBuilder(
           future: getUsers(),
           builder: (context, AsyncSnapshot snapshot) {
@@ -36,8 +46,17 @@ class _Home_ViewState extends State<Home_View> {
                                     )));
                       },
                       child: ListTile(
-                        title: Text("${snapshot.data.data[index].name}"),
-                        subtitle: Text("${snapshot.data.data[index].email}"),
+                        title: Text(
+                          "${snapshot.data.data[index].name}",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        subtitle: Text(
+                          "${snapshot.data.data[index].email}",
+                          style: TextStyle(color: Colors.black87, fontSize: 15),
+                        ),
                       ),
                     );
                   });
